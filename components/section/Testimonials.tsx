@@ -1,59 +1,53 @@
-export default function Testimonials() {
-    const reviews = [
-  {
-    name: "Jessica",
-    review: "Amazing quality and excellent service. Highly recommended.",
-  },
-  {
-    name: "Michelle",
-    review: "Packaging was beautiful and the product arrived in perfect condition.",
-  },
-  {
-    name: "Cindy",
-    review: "I've been shopping with GTLUXE for years. Always satisfied.",
-  },
+"use client";
+
+import Image from "next/image";
+
+const reviews = [
+  "/images/reviews/review1.jpg",
+  "/images/reviews/review2.jpg",
+  "/images/reviews/review3.jpg",
+  "/images/reviews/review7.jpg",
+  "/images/reviews/review8.jpg",
+  "/images/reviews/review9.jpg",
 ];
+
+export default function Testimonials() {
   return (
-    <section className="py-24 bg-[#faf8f5]">
+    <section className="bg-[#faf8f6] py-24">
+      <div className="mx-auto max-w-7xl px-6">
 
-      <div className="max-w-7xl mx-auto px-8">
+        <div className="mb-14 text-center">
+          <p className="text-sm uppercase tracking-[4px] text-[#8B1E2D]">
+            Customer Reviews
+          </p>
 
-        <h2 className="text-5xl font-serif text-center text-black">
-          What Our Clients Say
-        </h2>
+          <h2 className="mt-3 font-serif text-4xl text-[#222]">
+            Trusted by Hundreds of Happy Customers
+          </h2>
 
-        <p className="text-center text-gray-500 mt-4">
-          Trusted by luxury lovers across Indonesia.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
+          <p className="mt-4 text-gray-500">
+            Real Reviews from WhatsApp, Shopee & Tokopedia
+          </p>
+        </div>
 
-  {reviews.map((item) => (
-
-    <div
-      key={item.name}
-      className="bg-white rounded-2xl shadow-sm border p-7"
-    >
-
-      <div className="text-[#8B1E2D] text-2x1 mb-4">
-        ★★★★★
-      </div>
-
-      <p className="text-gray-600 leading-6">
-        "{item.review}"
-      </p>
-
-      <h3 className="mt-8 font-serif text-xl text-[#222]">
-        {item.name}
-      </h3>
-
-    </div>
-
-  ))}
-
-</div>
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-2xl bg-white shadow transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+            >
+              <Image
+                src={review}
+                alt={`Review ${index + 1}`}
+                width={600}
+                height={1200}
+                className="w-full"
+              />
+            </div>
+          ))}
+        </div>
 
       </div>
-
     </section>
   );
 }
