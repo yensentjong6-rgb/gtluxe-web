@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ImageUploader from "@/components/admin/ImageUploader";
+import ImageUploader from "@/components/dunkin/ImageUploader";
 import { Switch } from "@/components/ui/switch";
 import { createProduct } from "@/features/products/actions/create-product";
 import type { ProductImage } from "@/types/product-image";

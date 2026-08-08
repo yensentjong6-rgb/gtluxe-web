@@ -18,7 +18,7 @@ export async function deleteBrand(id: string) {
     };
   }
 
-  revalidatePath("/admin/brands");
+  revalidatePath("/dunkin/brands");
 
   return {
     success: true,

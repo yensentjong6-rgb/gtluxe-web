@@ -34,7 +34,7 @@ export async function createBrand(data: unknown) {
     };
   }
 
-  revalidatePath("/admin/brands");
+  revalidatePath("/dunkin/brands");
 
   return {
     success: true,
