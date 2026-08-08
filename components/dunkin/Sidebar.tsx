@@ -17,48 +17,48 @@ import {
 const menus = [
   {
     name: "Dashboard",
-    href: "/admin",
+    href: "/dunkin",
     icon: LayoutDashboard,
   },
   
   {
     name: "Products",
-    href: "/admin/products",
+    href: "/dunkin/products",
     icon: Package,
   },
   {
   name: "Brands",
-  href: "/admin/brands",
+  href: "/dunkin/brands",
   icon: Tags,
 },
   {
     name: "Categories",
-    href: "/admin/categories",
+    href: "/dunkin/categories",
     icon: FolderTree,
   },
   {
     name: "Orders",
-    href: "/admin/orders",
+    href: "/dunkin/orders",
     icon: ShoppingCart,
   },
   {
     name: "Customers",
-    href: "/admin/customers",
+    href: "/dunkin/customers",
     icon: Users,
   },
   {
     name: "Knowledge Base",
-    href: "/admin/knowledge",
+    href: "/dunkin/knowledge",
     icon: BookOpen,
   },
   {
     name: "Website",
-    href: "/admin/website",
+    href: "/dunkin/website",
     icon: Globe,
   },
   {
     name: "Settings",
-    href: "/admin/settings",
+    href: "/dunkin/settings",
     icon: Settings,
   },
 ];
