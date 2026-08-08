@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import ProductForm from "@/components/admin/products/ProductForm";
+import ProductForm from "@/components/dunkin/products/ProductForm";
 import { createClient } from "@/lib/supabase/server";
 
 type Props = {

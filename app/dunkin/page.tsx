@@ -1,5 +1,5 @@
-import DashboardCard from "@/components/admin/DashboardCard";
-import PageHeader from "@/components/admin/PageHeader";
+import DashboardCard from "@/components/dunkin/DashboardCard";
+import PageHeader from "@/components/dunkin/PageHeader";
 import {
   Package,
   Tags,
@@ -13,7 +13,7 @@ import { getCategoriesCount } from "@/features/dashboard/queries/get-categories-
 import { getFeaturedCount } from "@/features/dashboard/queries/get-featured-count";
 import { getNewArrivalsCount } from "@/features/dashboard/queries/get-new-arrivals-count";
 import { getLatestProducts } from "@/features/dashboard/queries/get-latest-products";
-import LatestProducts from "@/components/admin/LatestProducts";
+import LatestProducts from "@/components/dunkin/LatestProducts";
 
 export default async function DashboardPage() {
 

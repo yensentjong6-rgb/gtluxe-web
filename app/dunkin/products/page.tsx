@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { createClient } from "@/lib/supabase/server";
 
-import ProductTable from "@/components/admin/products/ProductTable";
-import ProductToolbar from "@/components/admin/products/ProductToolbar";
+import ProductTable from "@/components/dunkin/products/ProductTable";
+import ProductToolbar from "@/components/dunkin/products/ProductToolbar";
 
 type Props = {
   searchParams: Promise<{

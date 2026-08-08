@@ -1,4 +1,4 @@
-import PageHeader from "@/components/admin/PageHeader";
+import PageHeader from "@/components/dunkin/PageHeader";
 import BrandPage from "@/features/brands/components/BrandPage";
 import { createClient } from "@/lib/supabase/server";
 

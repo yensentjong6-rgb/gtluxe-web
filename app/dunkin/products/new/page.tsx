@@ -1,4 +1,4 @@
-import ProductForm from "@/components/admin/products/ProductForm";
+import ProductForm from "@/components/dunkin/products/ProductForm";
 import { getBrands } from "@/features/brands/queries/get-brands";
 import { getCategories } from "@/features/categories/queries/get-categories";
 import { getCollections } from "@/features/collections/queries/get-collections";

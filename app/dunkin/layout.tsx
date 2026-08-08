@@ -1,5 +1,5 @@
-import Sidebar from "@/components/admin/Sidebar";
-import Header from "@/components/admin/Header";
+import Sidebar from "@/components/dunkin/Sidebar";
+import Header from "@/components/dunkin/Header";
 import { Toaster } from "sonner";
 
 export default function AdminLayout({
