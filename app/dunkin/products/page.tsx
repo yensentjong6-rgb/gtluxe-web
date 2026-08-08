@@ -79,7 +79,7 @@ export default async function ProductsPage({
         </h1>
 
         <Link
-          href="/admin/products/new"
+          href="/dunkin/products/new"
           className="rounded-xl bg-[#8B1E2D] px-5 py-3 text-white"
         >
           + Add Product

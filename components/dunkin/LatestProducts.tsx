@@ -33,7 +33,7 @@ export default function LatestProducts({
         {products.map((product) => (
           <Link
             key={product.id}
-            href={`/admin/products/${product.id}/edit`}
+            href={`/dunkin/products/${product.id}/edit`}
             className="flex items-center gap-4 rounded-lg p-2 transition hover:bg-gray-50"
           >
             <Image
