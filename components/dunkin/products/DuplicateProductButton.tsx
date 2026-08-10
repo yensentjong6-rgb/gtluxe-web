@@ -28,7 +28,7 @@ if (!result.success) {
   return;
 }
 
-router.push(`/admin/products/${result.productId}/edit`);
+router.push(`/dunkin/products/${result.productId}/edit`);
   }
 
   return (
