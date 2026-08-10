@@ -3,12 +3,10 @@ import { PRODUCT_SELECT } from "./select";
 
 type GetProductsParams = {
   search?: string;
-
   brandId?: string;
   categoryId?: string;
-
+  gender?: string;
   sort?: string;
-
   page?: number;
   limit?: number;
 };
@@ -17,6 +15,7 @@ export async function getProducts({
   search,
   brandId,
   categoryId,
+  gender,
   sort,
   page = 1,
   limit = 12,
@@ -40,6 +39,10 @@ if (brandId) {
 
 if (categoryId) {
   query = query.eq("category_id", categoryId);
+}
+
+if (gender) {
+  query = query.eq("gender", gender);
 }
 
   const from = (page - 1) * limit;

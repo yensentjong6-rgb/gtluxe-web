@@ -26,6 +26,44 @@ export async function updateProduct({
 
   const supabase = await createClient();
 
+const { data: category, error: categoryError } = await supabase
+  .from("categories")
+  .select("name")
+  .eq("id", parsed.data.category_id)
+  .single();
+
+if (categoryError || !category) {
+  return {
+    success: false,
+    message: "Failed to determine product collection.",
+  };
+}
+
+let collectionSlug = "";
+
+if (category.name.toLowerCase() === "accessories") {
+  collectionSlug = "accessories";
+} else if (parsed.data.gender === "Women") {
+  collectionSlug = "women";
+} else if (parsed.data.gender === "Men") {
+  collectionSlug = "men";
+} else {
+  collectionSlug = "accessories";
+}
+
+const { data: collection, error: collectionError } = await supabase
+  .from("collections")
+  .select("id")
+  .eq("slug", collectionSlug)
+  .single();
+
+if (collectionError || !collection) {
+  return {
+    success: false,
+    message: "Failed to determine product collection.",
+  };
+}
+
   const slug = parsed.data.name
     .toLowerCase()
     .trim()
@@ -35,10 +73,11 @@ export async function updateProduct({
   const { error } = await supabase
     .from("products")
     .update({
-      ...parsed.data,
-      slug,
-      image_url: images[0] ?? null,
-    })
+  ...parsed.data,
+  collection_id: collection.id,
+  slug,
+  image_url: images[0] ?? null,
+})
     .eq("id", id);
 
   if (error) {

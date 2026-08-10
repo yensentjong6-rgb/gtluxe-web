@@ -27,23 +27,24 @@ type ProductFormProps = {
   categories: Category[];
   collections: Collection[];
 
-  product?: {
+ product?: {
+  id: string;
+  name: string;
+  description: string | null;
+  seo_title: string | null;
+  seo_description: string | null;
+  price: number;
+  brand_id: string;
+  category_id: string;
+  collection_id: string | null;
+  gender: string | null;
+  is_featured: boolean;
+  product_images: {
     id: string;
-    name: string;
-    description: string | null;
-    seo_title: string | null;
-seo_description: string | null;
-    price: number;
-    brand_id: string;
-    category_id: string;
-    collection_id: string | null;
-    is_featured: boolean;
-    product_images: {
-      id: string;
-      image_url: string;
-      sort_order: number;
-    }[];
-  };
+    image_url: string;
+    sort_order: number;
+  }[];
+};
 };
 
 export default function ProductForm({
@@ -52,10 +53,6 @@ export default function ProductForm({
   collections,
   product,
 }: ProductFormProps) {
-
-const [collectionId, setCollectionId] = useState(
-  product?.collection_id ?? ""
-);
 
 const [images, setImages] = useState<ProductImage[]>(
   product?.product_images?.map((image, index) => ({
@@ -91,6 +88,10 @@ const [categoryId, setCategoryId] = useState(
   product?.category_id ?? ""
 );
 
+const [gender, setGender] = useState(
+  product?.gender ?? ""
+);
+
 const [featured, setFeatured] = useState(
   product?.is_featured ?? false
 );
@@ -122,8 +123,7 @@ const handleSubmit = async (
   data: {
     brand_id: brandId,
     category_id: categoryId,
-    collection_id: collectionId,
-
+    gender: gender || null,
     name,
 
     description: description || null,
@@ -174,7 +174,7 @@ if (!product) {
   setDescription("");
   setBrandId("");
   setCategoryId("");
-  setCollectionId("");
+  setGender("");
   setFeatured(false);
   setImages([]);
 }
@@ -303,26 +303,19 @@ return (
 
   <div>
   <label className="mb-2 block text-sm font-medium text-gray-700">
-    Collection
+    Gender
   </label>
 
   <select
-    value={collectionId}
-    onChange={(e) => setCollectionId(e.target.value)}
+    value={gender}
+    onChange={(e) => setGender(e.target.value)}
+    required
     className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-[#8B1E2D]"
   >
-    <option value="">
-      Select Collection
-    </option>
-
-    {collections.map((collection) => (
-      <option
-        key={collection.id}
-        value={collection.id}
-      >
-        {collection.name}
-      </option>
-    ))}
+    <option value="">Select Gender</option>
+    <option value="Women">Women</option>
+    <option value="Men">Men</option>
+    <option value="Unisex">Unisex</option>
   </select>
 </div>
 

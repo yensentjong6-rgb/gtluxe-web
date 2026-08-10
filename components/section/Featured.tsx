@@ -19,7 +19,7 @@ export default function Featured() {
   {
     title: "Accessories",
     image: "/images/featured/accessories.jpg",
-    link: "/shop?category=Accessories",
+    link: "/shop?category=accessories",
   },
 ];
   return (

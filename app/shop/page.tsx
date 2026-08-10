@@ -11,6 +11,7 @@ type ShopPageProps = {
     search?: string;
     category?: string;
     brand?: string;
+    gender?: string;
     page?: string;
     sort?: string;
   }>;
@@ -36,6 +37,7 @@ export default async function ShopPage({
   search: params.search,
   categoryId: category?.id,
   brandId: brand?.id,
+  gender: params.gender,
   sort: params.sort,
   page,
 }),

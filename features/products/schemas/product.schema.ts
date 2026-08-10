@@ -5,8 +5,10 @@ export const productSchema = z.object({
 
   category_id: z.string().uuid("Please select a category"),
 
-  collection_id: z.string().uuid("Please select a collection"),
-
+  gender: z.enum(["Women", "Men"], {
+    message: "Please select a gender",
+  }),
+  
   name: z
     .string()
     .min(2, "Product name must be at least 2 characters"),
@@ -23,7 +25,7 @@ export const productSchema = z.object({
 
   seo_title: z.string().nullable(),
 
-seo_description: z.string().nullable(),
+  seo_description: z.string().nullable(),
 });
 
 export type ProductFormValues = z.infer<typeof productSchema>;
