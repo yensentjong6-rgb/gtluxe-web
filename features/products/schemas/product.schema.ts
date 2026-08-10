@@ -5,9 +5,9 @@ export const productSchema = z.object({
 
   category_id: z.string().uuid("Please select a category"),
 
-  gender: z.enum(["Women", "Men"], {
-    message: "Please select a gender",
-  }),
+  gender: z.enum(["Women", "Men", "Unisex"], {
+  message: "Please select a gender",
+}),
   
   name: z
     .string()

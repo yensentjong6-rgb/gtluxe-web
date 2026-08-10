@@ -116,14 +116,33 @@ const handleSubmit = async (
 ) => {
   e.preventDefault();
 
+  const formData = new FormData(e.currentTarget);
+
+  const selectedGender =
+    formData.get("gender")?.toString() ?? "";
+
+  console.log("=== GENDER DEBUG ===");
+  console.log("state gender:", gender);
+  console.log("form gender:", selectedGender);
+
+  if (!selectedGender) {
+    alert("Please select a gender.");
+    return;
+  }
+
   setLoading(true);
 
   try {
-    const payload = {
+
+    console.log("=== GENDER DEBUG ===");
+console.log("gender state:", gender);
+console.log("payload gender:", gender || null);
+
+const payload = {
   data: {
     brand_id: brandId,
     category_id: categoryId,
-    gender: gender || null,
+    gender: selectedGender,
     name,
 
     description: description || null,
@@ -307,16 +326,17 @@ return (
   </label>
 
   <select
-    value={gender}
-    onChange={(e) => setGender(e.target.value)}
-    required
-    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-[#8B1E2D]"
-  >
-    <option value="">Select Gender</option>
-    <option value="Women">Women</option>
-    <option value="Men">Men</option>
-    <option value="Unisex">Unisex</option>
-  </select>
+  name="gender"
+  value={gender}
+  onChange={(e) => setGender(e.target.value)}
+  required
+  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-[#8B1E2D]"
+>
+  <option value="">Select Gender</option>
+  <option value="Women">Women</option>
+  <option value="Men">Men</option>
+  <option value="Unisex">Unisex</option>
+</select>
 </div>
 
   {/* Featured */}

@@ -42,7 +42,11 @@ if (categoryId) {
 }
 
 if (gender) {
-  query = query.eq("gender", gender);
+  if (gender === "Women" || gender === "Men") {
+    query = query.in("gender", [gender, "Unisex"]);
+  } else {
+    query = query.eq("gender", gender);
+  }
 }
 
   const from = (page - 1) * limit;
