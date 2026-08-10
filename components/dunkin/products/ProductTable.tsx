@@ -119,7 +119,7 @@ export default function ProductTable({
                 <td className="px-6 py-4">
                   <div className="flex justify-end gap-2">
                     <Link
-                      href={`/admin/products/${product.id}/edit`}
+                      href={`/dunkin/products/${product.id}/edit`}
                       className="rounded-lg border border-gray-300 px-4 py-2 text-sm transition hover:bg-gray-100"
                     >
                       Edit

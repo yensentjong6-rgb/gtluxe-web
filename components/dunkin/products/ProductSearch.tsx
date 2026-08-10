@@ -24,7 +24,7 @@ export default function ProductSearch() {
       params.delete("search");
     }
 
-    router.push(`/admin/products?${params.toString()}`);
+    router.push(`/dunkin/products?${params.toString()}`);
   }
 
   return (

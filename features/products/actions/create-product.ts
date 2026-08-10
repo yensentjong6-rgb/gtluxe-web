@@ -67,7 +67,7 @@ export async function createProduct({
   }
 }
 
-  revalidatePath("/admin/products");
+  revalidatePath("/dunkin/products");
   revalidatePath("/shop");
 
   return {

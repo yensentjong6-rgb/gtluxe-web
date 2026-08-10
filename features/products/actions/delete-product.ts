@@ -31,7 +31,7 @@ export async function deleteProduct(id: string) {
     };
   }
 
-  revalidatePath("/admin/products");
+  revalidatePath("/dunkin/products");
 
   return {
     success: true,

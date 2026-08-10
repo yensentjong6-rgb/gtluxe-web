@@ -31,7 +31,7 @@ export async function updateCategory(
     };
   }
 
-  revalidatePath("/admin/categories");
+  revalidatePath("/dunkin/categories");
 
   return {
     success: true,

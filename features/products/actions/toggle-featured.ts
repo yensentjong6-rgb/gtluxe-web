@@ -23,7 +23,7 @@ export async function toggleFeatured(
     };
   }
 
-  revalidatePath("/admin/products");
+  revalidatePath("/dunkin/products");
 
   return {
     success: true,

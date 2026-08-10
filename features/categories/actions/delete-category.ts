@@ -18,7 +18,7 @@ export async function deleteCategory(id: string) {
     };
   }
 
-  revalidatePath("/admin/categories");
+  revalidatePath("/dunkin/categories");
 
   return {
     success: true,

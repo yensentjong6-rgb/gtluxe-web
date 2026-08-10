@@ -74,8 +74,8 @@ export async function updateProduct({
     }
   }
 
-  revalidatePath("/admin/products");
-  revalidatePath(`/admin/products/${id}/edit`);
+  revalidatePath("/dunkin/products");
+  revalidatePath(`/dunkin/products/${id}/edit`);
   revalidatePath("/shop");
 
   return {

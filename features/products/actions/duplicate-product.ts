@@ -78,7 +78,7 @@ const newSlug = `${baseSlug}-${Date.now()}`;
     );
   }
 
-  revalidatePath("/admin/products");
+  revalidatePath("/dunkin/products");
 
   return {
   success: true,
