@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ShopHeader from "@/components/shop/ShopHeader";
@@ -47,7 +47,35 @@ export default function ShopClient({
   total,
 }: ShopClientProps) {
 
-console.log("ShopClient rendered");
+  const router = useRouter();
+const searchParams = useSearchParams();
+
+const applyMobileFilters = () => {
+  const params = new URLSearchParams(searchParams.toString());
+
+  params.delete("page");
+
+  if (mobileCategory) {
+    params.set("category", mobileCategory);
+  } else {
+    params.delete("category");
+  }
+
+  if (mobileBrand) {
+    params.set("brand", mobileBrand);
+  } else {
+    params.delete("brand");
+  }
+
+  if (mobileSort) {
+    params.set("sort", mobileSort);
+  } else {
+    params.delete("sort");
+  }
+
+  router.push(`/shop?${params.toString()}`);
+  setFilterOpen(false);
+};
 
 const [filterOpen, setFilterOpen] = useState(false);
 const [mobileCategory, setMobileCategory] = useState("");
@@ -55,6 +83,7 @@ const [mobileBrand, setMobileBrand] =
   useState("");
 const [mobileSort, setMobileSort] =
   useState("");  
+  
 
   return (
     <>
@@ -194,23 +223,39 @@ const [mobileSort, setMobileSort] =
   <div className="flex gap-3">
 
     <button
-      type="button"
-      onClick={() => {
-        setMobileCategory("");
-        setMobileBrand("");
-        setMobileSort("");
-      }}
-      className="flex-1 rounded-xl border border-gray-300 py-3"
-    >
-      Reset
-    </button>
+  type="button"
+  onClick={() => {
+    setMobileCategory("");
+    setMobileBrand("");
+    setMobileSort("");
+
+    const params = new URLSearchParams(searchParams.toString());
+
+    params.delete("category");
+    params.delete("brand");
+    params.delete("sort");
+    params.delete("page");
+
+    router.push(
+      params.toString()
+        ? `/shop?${params.toString()}`
+        : "/shop"
+    );
+
+    setFilterOpen(false);
+  }}
+  className="flex-1 rounded-xl border border-gray-300 py-3"
+>
+  Reset
+</button>
 
     <button
-      type="button"
-      className="flex-1 rounded-xl bg-[#8B1E2D] py-3 font-medium text-white"
-    >
-      Show Products
-    </button>
+  type="button"
+  onClick={applyMobileFilters}
+  className="flex-1 rounded-xl bg-[#8B1E2D] py-3 font-medium text-white"
+>
+  Show Products
+</button>
 
   </div>
 </div>
