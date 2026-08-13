@@ -84,6 +84,11 @@ const [mobileBrand, setMobileBrand] =
 const [mobileSort, setMobileSort] =
   useState("");  
   
+  useEffect(() => {
+  setMobileCategory(searchParams.get("category") ?? "");
+  setMobileBrand(searchParams.get("brand") ?? "");
+  setMobileSort(searchParams.get("sort") ?? "");
+}, [searchParams]);
 
   return (
     <>
